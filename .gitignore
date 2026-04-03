@@ -1,0 +1,78 @@
+# -----------------------------
+# 🔐 ENV FILES (IMPORTANT)
+# -----------------------------
+.env
+.env.*
+*.env
+
+# -----------------------------
+# 🐍 PYTHON (Backend)
+# -----------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+venv/
+env/
+ENV/
+
+*.sqlite3
+db.sqlite3
+
+# FastAPI / logs
+*.log
+
+# -----------------------------
+# 📦 NODE (Frontend)
+# -----------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# React build
+build/
+dist/
+
+# -----------------------------
+# 🧠 ML FILES (Optional)
+# -----------------------------
+*.pkl
+*.joblib
+*.h5
+*.pt
+
+# -----------------------------
+# 🖼️ UPLOADS
+# -----------------------------
+uploads/
+*.png
+*.jpg
+*.jpeg
+*.pdf
+
+# -----------------------------
+# 🧑‍💻 IDE FILES
+# -----------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# -----------------------------
+# 🖥️ OS FILES
+# -----------------------------
+.DS_Store
+Thumbs.db
+
+# -----------------------------
+# 🔒 TESSERACT (optional ignore)
+# -----------------------------
+tessdata/
+
+# -----------------------------
+# 🚫 CACHE / TEMP
+# -----------------------------
+.cache/
+.tmp/
