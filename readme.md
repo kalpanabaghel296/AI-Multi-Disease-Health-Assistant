@@ -88,8 +88,8 @@ frontend/
 
 ### 🔹 1. Clone Repository
 
-git clone https://github.com/kalpanabaghel296/Multi-disease-Predication.git
-cd Multi-disease-Predication
+git clone https://github.com/kalpanabaghel296/AI-Multi-Disease-Health-Assistant.git
+cd AI-Multi-Disease-Health-Assistant
 
 ---
 
@@ -143,9 +143,9 @@ http://127.0.0.1:8000/docs
 
 ### 🔹 6. Frontend Setup
 
-cd frontend
+cd HealthPredictionNew
 npm install
-npm start
+npx react-native run-android
 
 ---
 
