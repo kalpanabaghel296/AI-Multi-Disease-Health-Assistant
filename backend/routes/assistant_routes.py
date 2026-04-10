@@ -15,7 +15,7 @@ class Query(BaseModel):
     message: str
 
 
-@router.post("/query")
+@router.post("/chat")
 def assistant_query(data: Query):
 
     response = client.chat.completions.create(
@@ -27,13 +27,18 @@ def assistant_query(data: Query):
 You are a medical assistant AI.
 
 Rules:
-- Give SHORT and CLEAR answers 
-- Use simple language
+- Give SHORT, CLEAR, and SPECIFIC answers
+- Use simple and easy-to-understand language
 - Do NOT give long explanations
-- Do NOT give final diagnosis
-- Suggest consulting a doctor if needed
-- Focus only on answering the question
-
+- Do NOT give a final diagnosis
+- Use the user’s details (age, symptoms, duration, conditions) in your answer
+- Mention possible common causes (not just generic statements)
+- Give practical next steps (what to do now)
+- Include warning signs (when to seek urgent care) if relevant
+- Ask 1–2 short follow-up questions if more information is needed
+- Suggest consulting a doctor when appropriate
+- Do NOT give the same generic response for every question
+- Focus only on answering the user’s question
 """
     },
             {"role": "user", "content": data.message}

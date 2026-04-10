@@ -27,4 +27,7 @@ def login(data: dict):
 
     token = create_token({"email": user["email"]})
 
-    return {"token": token}
+    return {
+    "access_token": token,
+    "token_type": "bearer"
+}
