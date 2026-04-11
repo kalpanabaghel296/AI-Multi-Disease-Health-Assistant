@@ -1,4 +1,10 @@
 import numpy as np
+import torch
+import torchvision.transforms as transforms
+from PIL import Image
+import io
+from models_loader import dermatosis_model, pneumonia_model
+
 from models_loader import (
     diabetes_model, diabetes_scaler,
     heart_model, heart_scaler, heart_selector,
@@ -142,3 +148,86 @@ def predict_lung(data):
 
     except Exception as e:
         return {"error": str(e)}
+    
+
+
+# ── Dermatosis classes ───────────────────────────────────────────────────────
+DERMATOSIS_CLASSES = [
+    "Melanocytic Nevi",
+    "Melanoma",
+    "Benign Keratosis",
+    "Basal Cell Carcinoma",
+    "Actinic Keratosis",
+    "Vascular Lesion",
+    "Dermatofibroma"
+]
+
+# ── Image transform (same for both models) ───────────────────────────────────
+def get_transform():
+    return transforms.Compose([
+        transforms.Resize((224, 224)),
+        transforms.ToTensor(),
+        transforms.Normalize(
+            mean=[0.485, 0.456, 0.406],
+            std=[0.229, 0.224, 0.225]
+        )
+    ])
+
+# ── Dermatosis Prediction ────────────────────────────────────────────────────
+def predict_dermatosis(image_bytes):
+    try:
+        if dermatosis_model is None:
+            return {"error": "Dermatosis model not loaded"}
+
+        image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
+        transform = get_transform()
+        tensor = transform(image).unsqueeze(0)
+
+        with torch.no_grad():
+            outputs = dermatosis_model(tensor)
+            probs = torch.softmax(outputs, dim=1)[0]
+            pred_idx = torch.argmax(probs).item()
+            confidence = round(probs[pred_idx].item() * 100, 2)
+
+        return {
+            "prediction": pred_idx,
+            "result": DERMATOSIS_CLASSES[pred_idx],
+            "confidence": confidence,
+            "all_probabilities": {
+                DERMATOSIS_CLASSES[i]: round(probs[i].item() * 100, 2)
+                for i in range(7)
+            }
+        }
+
+    except Exception as e:
+        return {"error": str(e)}
+
+
+# ── Pneumonia Prediction ─────────────────────────────────────────────────────
+def predict_pneumonia(image_bytes):
+    try:
+        if pneumonia_model is None:
+            return {"error": "Pneumonia model not loaded"}
+
+        image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
+        transform = get_transform()
+        tensor = transform(image).unsqueeze(0)
+
+        with torch.no_grad():
+            outputs = pneumonia_model(tensor)
+            probs = torch.softmax(outputs, dim=1)[0]
+            pred_idx = torch.argmax(probs).item()
+            confidence = round(probs[pred_idx].item() * 100, 2)
+
+        result = "Pneumonia Detected" if pred_idx == 1 else "Normal"
+
+        return {
+            "prediction": pred_idx,
+            "result": result,
+            "confidence": confidence,
+            "normal_probability": round(probs[0].item() * 100, 2),
+            "pneumonia_probability": round(probs[1].item() * 100, 2)
+        }
+
+    except Exception as e:
+        return {"error": str(e)}    

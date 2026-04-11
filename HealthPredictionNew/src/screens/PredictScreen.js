@@ -22,12 +22,12 @@ const MODELS = [
   {
     icon: '🔬', name: 'Dermatosis',       route: 'Dermatosis',
     desc: 'CNN-based skin lesion classification from photos. Clinical validation in progress.',
-    inputs: 'Image upload', model: 'PyTorch CNN', active: false, color: COLORS.textMuted, bg: COLORS.background,
+    inputs: 'Image upload', model: 'PyTorch CNN', active: true, color: COLORS.textMuted, bg: COLORS.background,
   },
   {
     icon: '🩻', name: 'Pneumonia',        route: 'Pneumonia',
     desc: 'Detect pneumonia from chest X-ray images using deep learning.',
-    inputs: 'X-Ray image', model: 'PyTorch CNN', active: false, color: COLORS.textMuted, bg: COLORS.background,
+    inputs: 'X-Ray image', model: 'PyTorch CNN', active: true, color: COLORS.textMuted, bg: COLORS.background,
   },
 ];
 

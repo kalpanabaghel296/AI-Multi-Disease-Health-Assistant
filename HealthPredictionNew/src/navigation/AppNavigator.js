@@ -16,7 +16,8 @@ import ProfileScreen      from '../screens/ProfileScreen';
 import DiabetesPredictionScreen from '../screens/DiabetesPredictionScreen';
 import HeartPredictionScreen    from '../screens/HeartPredictionScreen';
 import LungPredictionScreen     from '../screens/LungPredictionScreen';
-import { DermatosisPredictionScreen, PneumoniaPredictionScreen } from '../screens/PlaceholderScreens';
+import DermatosisPredictionScreen from '../screens/DermatosisPredictionScreen';
+import PneumoniaPredictionScreen from '../screens/PneumoniaPredictionScreen';
 
 const Stack  = createStackNavigator();
 const Tab    = createBottomTabNavigator();

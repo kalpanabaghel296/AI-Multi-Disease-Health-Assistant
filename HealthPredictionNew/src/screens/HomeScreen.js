@@ -15,8 +15,8 @@ const DISEASES = [
   { icon: '💉', label: 'Diabetes',         route: 'Diabetes',   active: true,  color: COLORS.primary },
   { icon: '❤️', label: 'Heart Disease',    route: 'Heart',      active: true,  color: '#EF4444' },
   { icon: '🫁', label: 'Lung Cancer Risk', route: 'Lung',       active: true,  color: '#8B5CF6' },
-  { icon: '🔬', label: 'Dermatosis',       route: 'Dermatosis', active: false, color: COLORS.textMuted },
-  { icon: '🩻', label: 'Pneumonia',        route: 'Pneumonia',  active: false, color: COLORS.textMuted },
+  { icon: '🔬', label: 'Dermatosis',       route: 'Dermatosis', active: true, color: '#EF4444' },
+  { icon: '🩻', label: 'Pneumonia',        route: 'Pneumonia',  active: true, color: '#8B5CF6' },
 ];
 
 const HomeScreen = ({ navigation }) => {
