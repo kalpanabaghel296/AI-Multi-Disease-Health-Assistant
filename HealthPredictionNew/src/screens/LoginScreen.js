@@ -49,7 +49,7 @@ const LoginScreen = ({ navigation }) => {
           {/* Hero */}
           <View style={s.hero}>
             <View style={s.logoWrap}><Text style={s.logoIcon}>🧬</Text></View>
-            <Text style={s.heroTitle}>Cognitive Health AI</Text>
+            <Text style={s.heroTitle}>ABC</Text>
             <Text style={s.heroSub}>AI-powered healthcare predictions & insights</Text>
           </View>
 

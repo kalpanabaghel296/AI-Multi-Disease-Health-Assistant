@@ -6,7 +6,7 @@ import { Card } from '../components/UIComponents';
 import { COLORS, SPACING, RADIUS, SHADOW } from '../../config';
 
 const QUICK_ACCESS = [
-  { icon: '🧬', label: 'Predict',   sub: 'Diabetes · Heart · Lung', tab: 'Predict',   bg: '#EFF6FF', border: '#BFDBFE' },
+  { icon: '🧬', label: 'Predict',   sub: 'Know your health risk', tab: 'Predict',   bg: '#EFF6FF', border: '#BFDBFE' },
   { icon: '📋', label: 'Reports',   sub: 'Upload & Extract',         tab: 'Upload',    bg: '#F0FDF4', border: '#BBF7D0' },
   { icon: '🤖', label: 'Assistant', sub: 'Ask AI anything',          tab: 'Assistant', bg: '#FFF7ED', border: '#FED7AA' },
 ];
@@ -42,8 +42,8 @@ const HomeScreen = ({ navigation }) => {
         {/* Banner */}
         <View style={s.banner}>
           <View style={s.bannerLeft}>
-            <Text style={s.bannerTitle}>AI Health Platform</Text>
-            <Text style={s.bannerSub}>ML + LLM for clinical decision support</Text>
+            <Text style={s.bannerTitle}>Welcome to ABC</Text>
+            <Text style={s.bannerSub}>Your 24/7 healthCare buddy</Text>
           </View>
           <Text style={s.bannerIcon}>🩺</Text>
         </View>
@@ -66,7 +66,7 @@ const HomeScreen = ({ navigation }) => {
         </View>
 
         {/* Disease list */}
-        <Text style={s.sectionTitle}>Disease Predictions</Text>
+        <Text style={s.sectionTitle}>Disease Detection</Text>
         <Card>
           {DISEASES.map((d, i) => (
             <TouchableOpacity

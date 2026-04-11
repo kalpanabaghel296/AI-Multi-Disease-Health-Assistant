@@ -108,7 +108,7 @@ const HeartPredictionScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={s.safe} edges={['top']}>
       {loading && <LoadingOverlay message="Running heart disease model…" />}
-      <ScreenHeader title="Heart Disease" subtitle="13 clinical parameters · Ensemble Model" onBack={() => navigation.goBack()} />
+      <ScreenHeader title="Heart Disease" subtitle="13 clinical parameters " onBack={() => navigation.goBack()} />
       <ScrollView contentContainerStyle={s.content} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
 
         {result && (

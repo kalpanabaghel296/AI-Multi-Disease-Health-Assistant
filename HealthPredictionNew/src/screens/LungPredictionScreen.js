@@ -72,7 +72,7 @@ const LungPredictionScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={s.safe} edges={['top']}>
       {loading && <LoadingOverlay message="Running lung cancer risk model…" />}
-      <ScreenHeader title="Lung Cancer Risk" subtitle="14 parameters · SVM + Ensemble" onBack={() => navigation.goBack()} />
+      <ScreenHeader title="Lung Cancer Risk" subtitle="14 parameters" onBack={() => navigation.goBack()} />
       <ScrollView contentContainerStyle={s.content} showsVerticalScrollIndicator={false}>
 
         {/* Progress bar */}

@@ -54,7 +54,7 @@ const DiabetesPredictionScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={s.safe} edges={['top']}>
       {loading && <LoadingOverlay message="Running diabetes model…" />}
-      <ScreenHeader title="Diabetes Prediction" subtitle="8 clinical parameters · scikit-learn" onBack={() => navigation.goBack()} />
+      <ScreenHeader title="Diabetes Prediction" subtitle="8 clinical parameters" onBack={() => navigation.goBack()} />
       <ScrollView contentContainerStyle={s.content} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
 
         {/* Result */}
